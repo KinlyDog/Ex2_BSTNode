@@ -1,9 +1,9 @@
 public class BSTNode<T> {
-    public int nodeKey; // ключ узла
-    public T nodeValue; // значение в узле
-    public BSTNode<T> parent; // родитель или null для корня
-    public BSTNode<T> leftChild; // левый потомок
-    public BSTNode<T> rightChild; // правый потомок
+    public int nodeKey;
+    public T nodeValue;
+    public BSTNode<T> parent;
+    public BSTNode<T> leftChild;
+    public BSTNode<T> rightChild;
 
     public BSTNode(int key, T val, BSTNode<T> parent) {
         nodeKey = key;
@@ -15,13 +15,8 @@ public class BSTNode<T> {
 }
 
 class BSTFind<T> {
-    // null, если в дереве вообще нету узлов
     public BSTNode<T> node;
-
-    // true, если узел найден
     public boolean nodeHasKey;
-
-    // true, если родительскому узлу надо добавить новый левым
     public boolean toLeft;
 
     public BSTFind() {
@@ -210,47 +205,4 @@ class BST<T> {
 
         return count;
     }
-}
-
-class Test {
-    public static void main(String[] args) {
-        BSTNode<Integer> root = new BSTNode<>(8, 0, null);
-        BST<Integer> tree = new BST<>(root);
-
-//        for (int i = 1; i < 16; i++) {
-//            tree.AddKeyValue(i , i);
-//        }
-
-        System.out.println("123");
-
-
-//        System.out.println(tree.AddKeyValue(, 0));
-//        System.out.println(tree.AddKeyValue(2, 0));
-
-//        BSTNode<Integer> testNode = tree.FinMinMax(root, true);
-
-        tree.AddKeyValue(4 , 4);
-        tree.AddKeyValue(12 , 4);
-        tree.AddKeyValue(2 , 4);
-        tree.AddKeyValue(6 , 4);
-        tree.AddKeyValue(10 , 4);
-        tree.AddKeyValue(14 , 4);
-        tree.AddKeyValue(1 , 4);
-        tree.AddKeyValue(3 , 4);
-        tree.AddKeyValue(5 , 4);
-        tree.AddKeyValue(7 , 4);
-        tree.AddKeyValue(9 , 4);
-        tree.AddKeyValue(11 , 4);
-        tree.AddKeyValue(13 , 4);
-        tree.AddKeyValue(15 , 4);
-
-        System.out.println(tree.DeleteNodeByKey(12));
-
-
-
-//        System.out.println(tree.DeleteNodeByKey(2));
-
-
-    }
-
 }
