@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class BSTNode<T> {
     public int nodeKey; // ключ узла
     public T nodeValue; // значение в узле
@@ -214,3 +212,45 @@ class BST<T> {
     }
 }
 
+class Test {
+    public static void main(String[] args) {
+        BSTNode<Integer> root = new BSTNode<>(8, 0, null);
+        BST<Integer> tree = new BST<>(root);
+
+//        for (int i = 1; i < 16; i++) {
+//            tree.AddKeyValue(i , i);
+//        }
+
+        System.out.println("123");
+
+
+//        System.out.println(tree.AddKeyValue(, 0));
+//        System.out.println(tree.AddKeyValue(2, 0));
+
+//        BSTNode<Integer> testNode = tree.FinMinMax(root, true);
+
+        tree.AddKeyValue(4 , 4);
+        tree.AddKeyValue(12 , 4);
+        tree.AddKeyValue(2 , 4);
+        tree.AddKeyValue(6 , 4);
+        tree.AddKeyValue(10 , 4);
+        tree.AddKeyValue(14 , 4);
+        tree.AddKeyValue(1 , 4);
+        tree.AddKeyValue(3 , 4);
+        tree.AddKeyValue(5 , 4);
+        tree.AddKeyValue(7 , 4);
+        tree.AddKeyValue(9 , 4);
+        tree.AddKeyValue(11 , 4);
+        tree.AddKeyValue(13 , 4);
+        tree.AddKeyValue(15 , 4);
+
+        System.out.println(tree.DeleteNodeByKey(12));
+
+
+
+//        System.out.println(tree.DeleteNodeByKey(2));
+
+
+    }
+
+}
