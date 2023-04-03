@@ -1,87 +1,90 @@
-public class BSTNode<T> {
-    public int nodeKey;
-    public T nodeValue;
-    public BSTNode<T> parent;
-    public BSTNode<T> leftChild;
-    public BSTNode<T> rightChild;
+import java.io.*;
+import java.util.*;
+
+class BSTNode<T> {
+    public int NodeKey;
+    public T NodeValue;
+    public BSTNode<T> Parent;
+    public BSTNode<T> LeftChild;
+    public BSTNode<T> RightChild;
 
     public BSTNode(int key, T val, BSTNode<T> parent) {
-        nodeKey = key;
-        nodeValue = val;
-        this.parent = parent;
-        leftChild = null;
-        rightChild = null;
+        NodeKey = key;
+        NodeValue = val;
+        Parent = parent;
+        LeftChild = null;
+        RightChild = null;
     }
 }
 
 class BSTFind<T> {
-    public BSTNode<T> node;
-    public boolean nodeHasKey;
-    public boolean toLeft;
+    public BSTNode<T> Node;
+    public boolean NodeHasKey;
+    public boolean ToLeft;
 
     public BSTFind() {
-        node = null;
+        Node = null;
     }
 }
 
 class BST<T> {
-    BSTNode<T> root;
+    BSTNode<T> Root;
     int count;
 
     public BST(BSTNode<T> node) {
-        root = node;
+        Root = node;
         count = 1;
     }
 
     public BSTFind<T> FindNodeByKey(int key) {
         BSTFind<T> BSTF = new BSTFind<>();
 
-        if (root == null) {
+        if (Root == null) {
             return BSTF;
         }
 
-        FindNodeByKeyRec(root, key, BSTF);
+        FindNodeByKeyRec(Root, key, BSTF);
 
         return BSTF;
     }
 
     private void FindNodeByKeyRec(BSTNode<T> node, int key, BSTFind<T> BSTF) {
-        BSTF.node = node;
+        BSTF.Node = node;
 
-        if (node.nodeKey == key) {
-            BSTF.nodeHasKey = true;
+        if (node.NodeKey == key) {
+            BSTF.NodeHasKey = true;
             return;
         }
 
-        if (key < node.nodeKey && node.leftChild == null) {
-            BSTF.toLeft = true;
+        if (key < node.NodeKey && node.LeftChild == null) {
+            BSTF.ToLeft = true;
             return;
         }
 
-        if (key > node.nodeKey && node.rightChild == null) {
+        if (key > node.NodeKey && node.RightChild == null) {
             return;
         }
 
-        if (key < node.nodeKey) {
-            FindNodeByKeyRec(node.leftChild, key, BSTF);
+        if (key < node.NodeKey) {
+            FindNodeByKeyRec(node.LeftChild, key, BSTF);
         } else {
-            FindNodeByKeyRec(node.rightChild, key, BSTF);
+            FindNodeByKeyRec(node.RightChild, key, BSTF);
         }
     }
 
     public boolean AddKeyValue(int key, T val) {
         BSTFind<T> BSTFNode = FindNodeByKey(key);
 
-        if (BSTFNode.nodeHasKey) {
+        if (BSTFNode.NodeHasKey) {
             return false;
         }
 
-        BSTNode<T> node = new BSTNode<>(key, val, BSTFNode.node);
+        BSTNode<T> node = new BSTNode<>(key, val, BSTFNode.Node);
 
-        if (BSTFNode.toLeft) {
-            BSTFNode.node.leftChild = node;
+        if (BSTFNode.ToLeft) {
+            BSTFNode.Node.LeftChild = node;
         } else {
-            BSTFNode.node.rightChild = node;
+            BSTFNode.Node.RightChild = node;
         }
 
         count++;
@@ -98,30 +101,30 @@ class BST<T> {
     }
 
     private BSTNode<T> findMax(BSTNode<T> fromNode) {
-        if (fromNode.rightChild == null) {
+        if (fromNode.RightChild == null) {
             return fromNode;
         }
 
-        return findMax(fromNode.rightChild);
+        return findMax(fromNode.RightChild);
     }
 
     private BSTNode<T> findMin(BSTNode<T> fromNode) {
-        if (fromNode.leftChild == null) {
+        if (fromNode.LeftChild == null) {
             return fromNode;
         }
 
-        return findMin(fromNode.leftChild);
+        return findMin(fromNode.LeftChild);
     }
 
     public boolean DeleteNodeByKey(int key) {
         BSTFind<T> BSTF = FindNodeByKey(key);
-        if (!BSTF.nodeHasKey) {
+        if (!BSTF.NodeHasKey) {
             return false;
         }
 
-        boolean parentRightChild = BSTF.node.parent.rightChild == BSTF.node;
-        boolean leftNull = BSTF.node.leftChild == null;
-        boolean rightNull = BSTF.node.rightChild == null;
+        boolean parentRightChild = BSTF.Node.Parent.RightChild == BSTF.Node;
+        boolean leftNull = BSTF.Node.LeftChild == null;
+        boolean rightNull = BSTF.Node.RightChild == null;
 
         if (leftNull && rightNull) {
             DeleteFirst(BSTF, parentRightChild);
@@ -139,70 +142,113 @@ class BST<T> {
 
     public void DeleteFirst(BSTFind<T> BSTF, boolean parentRightChild) {
         if (parentRightChild) {
-            BSTF.node.parent.rightChild = null;
+            BSTF.Node.Parent.RightChild = null;
         } else {
-            BSTF.node.parent.leftChild = null;
+            BSTF.Node.Parent.LeftChild = null;
         }
 
-        BSTF.node.parent = null;
+        BSTF.Node.Parent = null;
     }
 
     public void DeleteSecond(BSTFind<T> BSTF, boolean parentRightChild, boolean leftNull, boolean rightNull) {
         if (leftNull) {
             if (parentRightChild) {
-                BSTF.node.parent.rightChild = BSTF.node.rightChild;
+                BSTF.Node.Parent.RightChild = BSTF.Node.RightChild;
             } else {
-                BSTF.node.parent.leftChild = BSTF.node.rightChild;
+                BSTF.Node.Parent.LeftChild = BSTF.Node.RightChild;
             }
 
-            BSTF.node.rightChild.parent = BSTF.node.parent;
-            BSTF.node.rightChild = null;
+            BSTF.Node.RightChild.Parent = BSTF.Node.Parent;
+            BSTF.Node.RightChild = null;
         }
 
         if (rightNull) {
             if (parentRightChild) {
-                BSTF.node.parent.rightChild = BSTF.node.leftChild;
+                BSTF.Node.Parent.RightChild = BSTF.Node.LeftChild;
             } else {
-                BSTF.node.parent.leftChild = BSTF.node.leftChild;
+                BSTF.Node.Parent.LeftChild = BSTF.Node.LeftChild;
             }
 
-            BSTF.node.leftChild.parent = BSTF.node.parent;
-            BSTF.node.leftChild = null;
+            BSTF.Node.LeftChild.Parent = BSTF.Node.Parent;
+            BSTF.Node.LeftChild = null;
         }
 
-        BSTF.node.parent = null;
+        BSTF.Node.Parent = null;
     }
 
     public void DeleteThird(BSTFind<T> BSTF, boolean parentRightChild) {
-        BSTNode<T> node = DeleteThirdRec(BSTF.node.rightChild);
+        BSTNode<T> node = DeleteThirdRec(BSTF.Node.RightChild);
 
         if (parentRightChild) {
-            BSTF.node.parent.rightChild = node;
+            BSTF.Node.Parent.RightChild = node;
         } else {
-            BSTF.node.parent.leftChild = node;
+            BSTF.Node.Parent.LeftChild = node;
         }
 
-        node.parent.leftChild = null;
-        node.leftChild = BSTF.node.leftChild;
-        node.rightChild = BSTF.node.rightChild;
-        node.parent = BSTF.node.parent;
-        node.rightChild.parent = node;
-        node.leftChild.parent = node;
+        node.Parent.LeftChild = null;
+        node.LeftChild = BSTF.Node.LeftChild;
+        node.RightChild = BSTF.Node.RightChild;
+        node.Parent = BSTF.Node.Parent;
+        node.RightChild.Parent = node;
+        node.LeftChild.Parent = node;
     }
 
-    public BSTNode<T> DeleteThirdRec(BSTNode<T> node) {
-        if (node.leftChild == null) {
-            return node;
+    public BSTNode<T> DeleteThirdRec(BSTNode<T> Node) {
+        if (Node.LeftChild == null) {
+            return Node;
         }
 
-        return DeleteThirdRec(node.leftChild);
+        return DeleteThirdRec(Node.LeftChild);
     }
 
     public int Count() {
-        if (root == null) {
+        if (Root == null) {
             return 0;
         }
 
         return count;
     }
+}
+
+class Test {
+    public static void main(String[] args) {
+        BSTNode<Integer> root = new BSTNode<>(8, 0, null);
+        BST<Integer> tree = new BST<>(root);
+
+//        for (int i = 1; i < 16; i++) {
+//            tree.AddKeyValue(i , i);
+//        }
+
+        System.out.println("123");
+
+
+//        System.out.println(tree.AddKeyValue(, 0));
+//        System.out.println(tree.AddKeyValue(2, 0));
+
+//        BSTNode<Integer> testNode = tree.FinMinMax(root, true);
+
+        tree.AddKeyValue(4 , 4);
+        tree.AddKeyValue(12 , 4);
+        tree.AddKeyValue(2 , 4);
+        tree.AddKeyValue(6 , 4);
+        tree.AddKeyValue(10 , 4);
+        tree.AddKeyValue(14 , 4);
+        tree.AddKeyValue(1 , 4);
+        tree.AddKeyValue(3 , 4);
+        tree.AddKeyValue(5 , 4);
+        tree.AddKeyValue(7 , 4);
+        tree.AddKeyValue(9 , 4);
+        tree.AddKeyValue(11 , 4);
+        tree.AddKeyValue(13 , 4);
+        tree.AddKeyValue(15 , 4);
+
+        System.out.println(tree.DeleteNodeByKey(12));
+
+
+
+//        System.out.println(tree.DeleteNodeByKey(2));
+
+
+    }
+
 }
