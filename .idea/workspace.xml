@@ -44,11 +44,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -62,7 +64,10 @@
       <updated>1680271517151</updated>
       <workItem from="1680271518242" duration="2634000" />
       <workItem from="1680279824717" duration="3060000" />
-      <workItem from="1680362933438" duration="28770000" />
+      <workItem from="1680362933438" duration="29783000" />
+      <workItem from="1680505680204" duration="41000" />
+      <workItem from="1680505727445" duration="40000" />
+      <workItem from="1680505772434" duration="13899000" />
     </task>
     <task id="LOCAL-00001" summary="Create project">
       <created>1680459240014</created>
@@ -85,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680459344252</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update project">
+      <created>1680504777349</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680504777349</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,5 +107,26 @@
     <MESSAGE value="Create project" />
     <MESSAGE value="Update project" />
     <option name="LAST_COMMIT_MESSAGE" value="Update project" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/BSTNode.java</url>
+          <line>167</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/BSTNode.java</url>
+          <line>248</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/BSTNode.java</url>
+          <line>304</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
