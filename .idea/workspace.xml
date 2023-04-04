@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8340410a-b643-446b-9d7f-5a9b952bc9ec" name="Changes" comment="Update project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BSTNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BSTNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +42,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
@@ -67,7 +67,7 @@
       <workItem from="1680362933438" duration="29783000" />
       <workItem from="1680505680204" duration="41000" />
       <workItem from="1680505727445" duration="40000" />
-      <workItem from="1680505772434" duration="13899000" />
+      <workItem from="1680505772434" duration="15477000" />
     </task>
     <task id="LOCAL-00001" summary="Create project">
       <created>1680459240014</created>
@@ -97,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680504777349</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update project">
+      <created>1680521969704</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680521969704</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,16 +122,6 @@
           <url>file://$PROJECT_DIR$/src/BSTNode.java</url>
           <line>167</line>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BSTNode.java</url>
-          <line>248</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BSTNode.java</url>
-          <line>304</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

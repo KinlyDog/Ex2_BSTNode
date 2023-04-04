@@ -165,20 +165,6 @@ class BST<T> {
     }
 
     public void DeleteSecond(BSTFind<T> BSTF, boolean leftNull, boolean rightNull) {
-//        if (BSTF.Node == Root && leftNull) {
-//            Root = BSTF.Node.RightChild;
-//            BSTF.Node.RightChild = null;
-//            Root.Parent = null;
-//            return;
-//        }
-//
-//        if (BSTF.Node == Root && rightNull) {
-//            Root = BSTF.Node.LeftChild;
-//            BSTF.Node.LeftChild = null;
-//            Root.Parent = null;
-//            return;
-//        }
-
         boolean parentRightChild = BSTF.Node.Parent.RightChild == BSTF.Node;
 
         if (leftNull) {
@@ -218,13 +204,6 @@ class BST<T> {
         }
 
         if (BSTF.Node.RightChild.LeftChild != null) {
-//            node.Parent = BSTF.Node.Parent;
-//            node.RightChild = BSTF.Node.RightChild;
-//            node.LeftChild = BSTF.Node.LeftChild;
-//
-//            node.RightChild.Parent = node;
-//            node.LeftChild.Parent = node;
-
             node.Parent.LeftChild = null;
             node.LeftChild = BSTF.Node.LeftChild;
             node.RightChild = BSTF.Node.RightChild;
