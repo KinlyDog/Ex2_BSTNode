@@ -129,107 +129,73 @@ class BST<T> {
             return false;
         }
 
-        boolean leftNull = BSTF.Node.LeftChild == null;
-        boolean rightNull = BSTF.Node.RightChild == null;
+        count--;
 
-        // написать код удаления узла Root
-        if (BSTF.Node == Root && leftNull && rightNull) {
-            Root = null;
-            return true;
-        }
+        BSTNode<T> node = BSTF.Node;
+
+        boolean leftNull = node.LeftChild == null;
+        boolean rightNull = node.RightChild == null;
 
         if (leftNull && rightNull) {
-            DeleteFirst(BSTF);
-        } else if (leftNull || rightNull) {
-            DeleteSecond(BSTF, leftNull, rightNull);
-        } else {
-            DeleteThird(BSTF);
+            return nodeExchange(node, null);
         }
 
-//        DeleteThird(BSTF, parentRightChild);
-        count--;
+        if (!leftNull && !rightNull) {
+            return deleteIfNotNull(node);
+        }
+
+        return deleteIfOneNull(node, leftNull);
+    }
+
+    private boolean nodeExchange(BSTNode<T> node, BSTNode<T> nodeExchange) {
+        if (node.Parent.RightChild == node) {
+            node.Parent.RightChild = nodeExchange;
+
+        } else {
+            node.Parent.LeftChild = nodeExchange;
+        }
 
         return true;
     }
 
-    public void DeleteFirst(BSTFind<T> BSTF) {
-        boolean parentRightChild = BSTF.Node.Parent.RightChild == BSTF.Node;
+    private boolean deleteIfNotNull(BSTNode<T> node) {
+        BSTNode<T> lastNode = deleteIfNotNullRec(node.RightChild);
 
-        if (parentRightChild) {
-            BSTF.Node.Parent.RightChild = null;
-        } else {
-            BSTF.Node.Parent.LeftChild = null;
+        nodeExchange(node, lastNode);
+
+        lastNode.LeftChild = node.LeftChild;
+        lastNode.LeftChild.Parent = lastNode;
+
+        lastNode.Parent.LeftChild = null;
+        lastNode.Parent = node.Parent;
+
+        if (lastNode != node.RightChild) {
+            lastNode.RightChild = node.RightChild;
+            lastNode.RightChild.Parent = lastNode;
         }
 
-        BSTF.Node.Parent = null;
+        return true;
     }
 
-    public void DeleteSecond(BSTFind<T> BSTF, boolean leftNull, boolean rightNull) {
-        boolean parentRightChild = BSTF.Node.Parent.RightChild == BSTF.Node;
-
-        if (leftNull) {
-            if (parentRightChild) {
-                BSTF.Node.Parent.RightChild = BSTF.Node.RightChild;
-            } else {
-                BSTF.Node.Parent.LeftChild = BSTF.Node.RightChild;
-            }
-
-            BSTF.Node.RightChild.Parent = BSTF.Node.Parent;
-            BSTF.Node.RightChild = null;
-        }
-
-        if (rightNull) {
-            if (parentRightChild) {
-                BSTF.Node.Parent.RightChild = BSTF.Node.LeftChild;
-            } else {
-                BSTF.Node.Parent.LeftChild = BSTF.Node.LeftChild;
-            }
-
-            BSTF.Node.LeftChild.Parent = BSTF.Node.Parent;
-            BSTF.Node.LeftChild = null;
-        }
-
-        BSTF.Node.Parent = null;
-    }
-
-    public void DeleteThird(BSTFind<T> BSTF) {
-        boolean parentRightChild = BSTF.Node.Parent.RightChild == BSTF.Node;
-
-        BSTNode<T> node = DeleteThirdRec(BSTF.Node.RightChild);
-
-        if (parentRightChild) {
-            BSTF.Node.Parent.RightChild = node;
-        } else {
-            BSTF.Node.Parent.LeftChild = node;
-        }
-
-        if (BSTF.Node.RightChild.LeftChild != null) {
-            node.Parent.LeftChild = null;
-            node.LeftChild = BSTF.Node.LeftChild;
-            node.RightChild = BSTF.Node.RightChild;
-            node.Parent = BSTF.Node.Parent;
-
-            if (node.RightChild != null) {
-                node.RightChild.Parent = node;
-            }
-
-            if (node.LeftChild != null) {
-                node.LeftChild.Parent = node;
-            }
-        } else {
-            node.Parent = BSTF.Node.Parent;
-
-            node.LeftChild = BSTF.Node.LeftChild;
-            node.LeftChild.Parent = node;
-        }
-    }
-
-    public BSTNode<T> DeleteThirdRec(BSTNode<T> Node) {
+    private BSTNode<T> deleteIfNotNullRec(BSTNode<T> Node) {
         if (Node.LeftChild == null) {
             return Node;
         }
 
-        return DeleteThirdRec(Node.LeftChild);
+        return deleteIfNotNullRec(Node.LeftChild);
+    }
+
+    private boolean deleteIfOneNull(BSTNode<T> node, boolean leftNull) {
+        if (leftNull) {
+            nodeExchange(node, node.RightChild);
+            node.RightChild.Parent = node.Parent;
+
+        } else {
+            nodeExchange(node, node.LeftChild);
+            node.LeftChild.Parent = node.Parent;
+        }
+
+        return true;
     }
 
     public int Count() {
