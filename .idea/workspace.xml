@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8340410a-b643-446b-9d7f-5a9b952bc9ec" name="Changes" comment="Refactoring ^^">
+    <list default="true" id="8340410a-b643-446b-9d7f-5a9b952bc9ec" name="Changes" comment="Update ex">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BSTNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BSTNode.java" afterDir="false" />
     </list>
@@ -25,7 +25,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/BSTNode.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/BSTNode2.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/ChatWindow.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,6 +56,49 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.BST">
+    <configuration name="BST" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="BST" />
+      <module name="Ex2_BSTNode" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChatWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ChatWindow" />
+      <module name="Ex2_BSTNode" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MortgageVsRentCalculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MortgageVsRentCalculator" />
+      <module name="Ex2_BSTNode" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MortgageVsRentCalculatorGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MortgageVsRentCalculatorGUI" />
+      <module name="Ex2_BSTNode" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BST" />
+        <item itemvalue="Application.MortgageVsRentCalculatorGUI" />
+        <item itemvalue="Application.MortgageVsRentCalculator" />
+        <item itemvalue="Application.ChatWindow" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -75,7 +118,8 @@
       <workItem from="1680665037863" duration="208000" />
       <workItem from="1680665313882" duration="227000" />
       <workItem from="1680780136006" duration="19333000" />
-      <workItem from="1680957293290" duration="7329000" />
+      <workItem from="1680957293290" duration="14246000" />
+      <workItem from="1681046814141" duration="7204000" />
     </task>
     <task id="LOCAL-00001" summary="Create project">
       <created>1680459240014</created>
@@ -126,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680890085060</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Update ex">
+      <created>1680984093173</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680984093173</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,15 +187,21 @@
     <MESSAGE value="Create project" />
     <MESSAGE value="Update project" />
     <MESSAGE value="Refactoring ^^" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring ^^" />
+    <MESSAGE value="Update ex" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update ex" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/BSTNode.java</url>
-          <line>239</line>
+          <line>251</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/BSTNode.java</url>
+          <line>361</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

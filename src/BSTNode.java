@@ -43,14 +43,26 @@ class BST<T> {
             return list;
         }
 
-        list.add(Root);
+        Queue<BSTNode> queue = new LinkedList<>();
+        queue.add(Root);
 
-        WideAllNodesRec(Root, list);
+        while (!queue.isEmpty()) {
+            BSTNode node = queue.remove();
+            list.add(node);
+
+            if (node.LeftChild != null) {
+                queue.add(node.LeftChild);
+            }
+
+            if (node.RightChild != null) {
+                queue.add(node.RightChild);
+            }
+        }
 
         return list;
     }
 
-    public void WideAllNodesRec(BSTNode<T> node, ArrayList<BSTNode> list) {
+    public void DeepHeloAllNodesRec(BSTNode<T> node, ArrayList<BSTNode> list) {
         if (node.LeftChild == null && node.RightChild == null) {
             return;
         }
@@ -64,11 +76,11 @@ class BST<T> {
         }
 
         if (node.LeftChild != null) {
-            WideAllNodesRec(node.LeftChild, list);
+            DeepHeloAllNodesRec(node.LeftChild, list);
         }
 
         if (node.RightChild != null) {
-            WideAllNodesRec(node.RightChild, list);
+            DeepHeloAllNodesRec(node.RightChild, list);
         }
     }
 
@@ -80,13 +92,13 @@ class BST<T> {
         if (node.LeftChild != null) {
             list.add(node.LeftChild);
 
-            WideAllNodesRec(node.LeftChild, list);
+            DeepHeloAllNodesRec(node.LeftChild, list);
         }
 
         if (node.RightChild != null) {
             list.add(node.RightChild);
 
-            WideAllNodesRec(node.RightChild, list);
+            DeepHeloAllNodesRec(node.RightChild, list);
         }
     }
 
@@ -327,3 +339,4 @@ class BST<T> {
         return count;
     }
 }
+
