@@ -62,110 +62,47 @@ class BST<T> {
         return list;
     }
 
-    public void DeepHeloAllNodesRec(BSTNode<T> node, ArrayList<BSTNode> list) {
-        if (node.LeftChild == null && node.RightChild == null) {
-            return;
-        }
-
-        if (node.LeftChild != null) {
-            list.add(node.LeftChild);
-        }
-
-        if (node.RightChild != null) {
-            list.add(node.RightChild);
-        }
-
-        if (node.LeftChild != null) {
-            DeepHeloAllNodesRec(node.LeftChild, list);
-        }
-
-        if (node.RightChild != null) {
-            DeepHeloAllNodesRec(node.RightChild, list);
-        }
-    }
-
-    private void DeepAllNodesRec(BSTNode<T> node, ArrayList<BSTNode> list) {
-        if (node.LeftChild == null && node.RightChild == null) {
-            return;
-        }
-
-        if (node.LeftChild != null) {
-            list.add(node.LeftChild);
-
-            DeepHeloAllNodesRec(node.LeftChild, list);
-        }
-
-        if (node.RightChild != null) {
-            list.add(node.RightChild);
-
-            DeepHeloAllNodesRec(node.RightChild, list);
-        }
-    }
-
     public ArrayList<BSTNode> DeepAllNodes(int i) {
-        ArrayList<BSTNode> list = new ArrayList<>();
+        ArrayList<BSTNode> list = new ArrayList<BSTNode>();
 
-        if (Root == null) {
-            return list;
+        switch (i) {
+            case 0:
+                inOrder(Root, list);
+                break;
+
+            case 1:
+                postOrder(Root, list);
+                break;
+
+            case 2:
+                preOrder(Root, list);
+                break;
         }
-
-        if (i == 0) {
-            inOrder(Root, list);
-        } else if (i == 1) {
-            postOrder(Root, list);
-        } else {
-            preOrder(Root, list);
-        }
-
 
         return list;
     }
 
-    private void inOrder(BSTNode<T> node, ArrayList<BSTNode> list) {
-        if (node.LeftChild != null) {
-            list.add(node.LeftChild);
-
-            DeepAllNodesRec(node.LeftChild, list);
-        }
-
-        list.add(node);
-
-        if (node.RightChild != null) {
-            list.add(node.RightChild);
-
-            DeepAllNodesRec(node.RightChild, list);
+    private void inOrder(BSTNode node, ArrayList<BSTNode> list) {
+        if (node != null) {
+            inOrder(node.LeftChild, list);
+            list.add(node);
+            inOrder(node.RightChild, list);
         }
     }
 
-    private void postOrder(BSTNode<T> node, ArrayList<BSTNode> list) {
-        if (node.LeftChild != null) {
-            list.add(node.LeftChild);
-
-            DeepAllNodesRec(node.LeftChild, list);
+    private void postOrder(BSTNode node, ArrayList<BSTNode> list) {
+        if (node != null) {
+            postOrder(node.LeftChild, list);
+            postOrder(node.RightChild, list);
+            list.add(node);
         }
-
-        if (node.RightChild != null) {
-            list.add(node.RightChild);
-
-            DeepAllNodesRec(node.RightChild, list);
-        }
-
-        list.add(node);
     }
 
-    private void preOrder(BSTNode<T> node, ArrayList<BSTNode> list) {
-        list.add(node);
-
-        if (node.LeftChild != null) {
-            list.add(node.LeftChild);
-
-            DeepAllNodesRec(node.LeftChild, list);
-        }
-
-        if (node.RightChild != null) {
-            list.add(node.RightChild);
-
-            DeepAllNodesRec(node.RightChild, list);
+    private void preOrder(BSTNode node, ArrayList<BSTNode> list) {
+        if (node != null) {
+            list.add(node);
+            preOrder(node.LeftChild, list);
+            preOrder(node.RightChild, list);
         }
     }
 
